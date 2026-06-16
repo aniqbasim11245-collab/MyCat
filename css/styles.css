@@ -674,9 +674,6 @@
     }
   
 
-    * { cursor: none !important; }
-    #cat-cursor { cursor: none; }
-
     .app-preview-section {
   padding: 90px 8%;
   background: linear-gradient(180deg, #fff8cf, #ffffff);
