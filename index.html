@@ -329,44 +329,7 @@
       if (apkObjectUrl) { URL.revokeObjectURL(apkObjectUrl); apkObjectUrl = null; }
       apkInput.value = '';
     });
-const slides = document.querySelectorAll(".phone-slide");
-  const prevBtn = document.getElementById("prevBtn");
-  const nextBtn = document.getElementById("nextBtn");
-
-  let currentIndex = 0;
-
-  function updateCarousel() {
-    slides.forEach((slide) => {
-      slide.className = "phone-slide";
-    });
-
-    const total = slides.length;
-
-    const active = currentIndex;
-    const left = (currentIndex - 1 + total) % total;
-    const right = (currentIndex + 1) % total;
-    const farLeft = (currentIndex - 2 + total) % total;
-    const farRight = (currentIndex + 2) % total;
-
-    slides[active].classList.add("active");
-    slides[left].classList.add("left");
-    slides[right].classList.add("right");
-    slides[farLeft].classList.add("far-left");
-    slides[farRight].classList.add("far-right");
-  }
-
-  nextBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % slides.length;
-    updateCarousel();
-  });
-
-  prevBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateCarousel();
-  });
-
-  updateCarousel();
-
+    
   </script>
 
   <!-- CAT CURSOR -->
@@ -457,6 +420,43 @@ const slides = document.querySelectorAll(".phone-slide");
     document.addEventListener('mouseup', () => {
       catCursor.style.transform = 'scale(1)';
     });
+    const slides = document.querySelectorAll(".phone-slide");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    slides.forEach((slide) => {
+      slide.className = "phone-slide";
+    });
+
+    const total = slides.length;
+
+    const active = currentIndex;
+    const left = (currentIndex - 1 + total) % total;
+    const right = (currentIndex + 1) % total;
+    const farLeft = (currentIndex - 2 + total) % total;
+    const farRight = (currentIndex + 2) % total;
+
+    slides[active].classList.add("active");
+    slides[left].classList.add("left");
+    slides[right].classList.add("right");
+    slides[farLeft].classList.add("far-left");
+    slides[farRight].classList.add("far-right");
+  }
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateCarousel();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateCarousel();
+  });
+
+  updateCarousel();
   </script>
 </body>
 </html>
