@@ -1279,3 +1279,81 @@
   .feature-info-card {
     justify-self: end;
   }
+
+  /* FINAL MOBILE FIX */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  .app-showcase-section {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    padding: 60px 1rem;
+  }
+
+  .showcase-layout {
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: 1fr;
+    overflow-x: hidden;
+  }
+
+  .carousel-wrapper {
+    width: 100%;
+    max-width: 100%;
+    height: 500px;
+    overflow: hidden;
+  }
+
+  .phone-carousel {
+    width: 230px;
+    height: 440px;
+  }
+
+  .phone-slide img {
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    object-fit: contain;
+  }
+
+  .phone-slide.active {
+    opacity: 1;
+    transform: translateX(0) translateZ(60px) rotateY(0deg) scale(0.9);
+  }
+
+  .phone-slide.left {
+    opacity: 0.35;
+    transform: translateX(-45px) translateZ(-90px) rotateY(35deg) scale(0.5);
+  }
+
+  .phone-slide.right {
+    opacity: 0.35;
+    transform: translateX(45px) translateZ(-90px) rotateY(-35deg) scale(0.5);
+  }
+
+  .phone-slide.far-left,
+  .phone-slide.far-right {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  .carousel-btn.prev {
+    left: 8px;
+  }
+
+  .carousel-btn.next {
+    right: 8px;
+  }
+
+  .feature-info-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+}
