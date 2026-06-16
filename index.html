@@ -103,78 +103,62 @@
     </div>
   </section>
 
-  <section class="app-preview-section" id="screenshots">
+  <section class="app-showcase-section" id="features">
   <div class="section-header">
     <span class="section-label">App Preview</span>
     <h2>See MyCAT in Action</h2>
-    <p>Swipe through the main screens of MyCAT in a 3D phone preview.</p>
+    <p>Explore each MyCAT feature through real app screens and clear feature details.</p>
   </div>
 
-  <div class="carousel-wrapper">
-    <button class="carousel-btn prev" id="prevBtn">‹</button>
+  <div class="showcase-layout">
+    <div class="carousel-wrapper">
+      <button class="carousel-btn prev" id="prevBtn">‹</button>
 
-    <div class="phone-carousel" id="phoneCarousel">
-      <div class="phone-slide active">
-        <img src="images/homepage.png" alt="Home Page">
-        <h3>Home Page</h3>
+      <div class="phone-carousel" id="phoneCarousel">
+        <div class="phone-slide active">
+          <img src="images/homepage.png" alt="Home Page">
+        </div>
+
+        <div class="phone-slide">
+          <img src="images/addcat.png" alt="Add Cat">
+        </div>
+
+        <div class="phone-slide">
+          <img src="images/catbot.png" alt="CatBot AI">
+        </div>
+
+        <div class="phone-slide">
+          <img src="images/medicalhistory.png" alt="Medical History">
+        </div>
+
+        <div class="phone-slide">
+          <img src="images/catmedicalhistory.png" alt="Cat Records">
+        </div>
+
+        <div class="phone-slide">
+          <img src="images/growth.png" alt="Growth Tracking">
+        </div>
       </div>
 
-      <div class="phone-slide">
-        <img src="images/addcat.png" alt="Add Cat">
-        <h3>Add Cat</h3>
-      </div>
-
-      <div class="phone-slide">
-        <img src="images/catbot.png" alt="CatBot AI">
-        <h3>CatBot AI</h3>
-      </div>
-
-      <div class="phone-slide">
-        <img src="images/medicalhistory.png" alt="Medical History">
-        <h3>Medical History</h3>
-      </div>
-
-      <div class="phone-slide">
-        <img src="images/catmedicalhistory.png" alt="Cat Records">
-        <h3>Cat Records</h3>
-      </div>
-
-      <div class="phone-slide">
-        <img src="images/growth.png" alt="Growth Tracking">
-        <h3>Growth Tracking</h3>
-      </div>
+      <button class="carousel-btn next" id="nextBtn">›</button>
     </div>
 
-    <button class="carousel-btn next" id="nextBtn">›</button>
+    <div class="feature-info-card" id="featureInfo">
+      <span class="feature-tag" id="featureTag">Cat Profiles</span>
+      <h3 id="featureTitle">Home Page</h3>
+      <p id="featureDesc">
+        View and manage all your cats in one place with a clean card-based interface.
+      </p>
+
+      <div class="feature-points" id="featurePoints">
+        <div>🐱 View saved cat profiles</div>
+        <div>🔍 Search cats quickly</div>
+        <div>📌 Access each cat’s details</div>
+      </div>
+    </div>
   </div>
 </section>
 
-  <!-- FEATURES -->
-  <section class="features" id="features">
-    <div class="section-label">What's inside</div>
-    <div class="features-grid">
-      <div class="feature-card">
-        <span class="feature-icon">🏥</span>
-        <h3 class="feature-title">Health Records</h3>
-        <p class="feature-desc">Track vaccinations, vet visits, medications, and weight history. Never miss an appointment again.</p>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">🤖</span>
-        <h3 class="feature-title">AI Chatbot</h3>
-        <p class="feature-desc">Chat with our AI and ask anything about cat care, behaviour, and health. Snap a photo of any cat and instantly detect its breed with AI-powered image recognition.</p>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">🔔</span>
-        <h3 class="feature-title">Smart Reminders</h3>
-        <p class="feature-desc">Get notified for medications, flea treatments, grooming, and annual checkups automatically.</p>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">📊</span>
-        <h3 class="feature-title">Growth Tracker</h3>
-        <p class="feature-desc">Monitor weight, size, and health trends over time with beautiful, easy-to-read charts.</p>
-      </div>
-    </div>
-  </section>
 
   <!-- INSTALL GUIDE -->
   <section class="install" id="install">
@@ -377,8 +361,7 @@
       <line x1="57" y1="55" x2="42" y2="56" stroke="#FFFDE7" stroke-width="0.9" opacity="0.7"/>
       <line x1="57" y1="58" x2="42" y2="57.5" stroke="#FFFDE7" stroke-width="0.9" opacity="0.7"/>
     </svg>
-  </div> -->
-
+  </div> 
 
   <script>
     // const catCursor = document.getElementById('cat-cursor');
@@ -416,11 +399,98 @@
     // document.addEventListener('mouseup', () => {
     //   catCursor.style.transform = 'scale(1)';
     // });
-    const slides = document.querySelectorAll(".phone-slide");
+   const slides = document.querySelectorAll(".phone-slide");
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
 
+  const featureInfo = document.getElementById("featureInfo");
+  const featureTag = document.getElementById("featureTag");
+  const featureTitle = document.getElementById("featureTitle");
+  const featureDesc = document.getElementById("featureDesc");
+  const featurePoints = document.getElementById("featurePoints");
+
+  const featureData = [
+    {
+      tag: "Cat Profiles",
+      title: "Home Page",
+      desc: "View and manage all your cats in one place with a clean card-based interface.",
+      points: [
+        "🐱 View saved cat profiles",
+        "🔍 Search cats quickly",
+        "📌 Access each cat’s details"
+      ]
+    },
+    {
+      tag: "Profile Setup",
+      title: "Add New Cat",
+      desc: "Create a complete cat profile by adding important details such as name, age, gender, breed, and photo.",
+      points: [
+        "➕ Add new cat profiles",
+        "📷 Upload cat photo",
+        "📝 Save breed and basic details"
+      ]
+    },
+    {
+      tag: "AI Assistant",
+      title: "CatBot AI",
+      desc: "Ask CatBot questions about cat care, breeds, symptoms, and general pet guidance directly inside the app.",
+      points: [
+        "🤖 AI-powered cat assistant",
+        "💬 Ask health and care questions",
+        "⚠️ Reminds users to verify with vets"
+      ]
+    },
+    {
+      tag: "Medical Records",
+      title: "Medical History",
+      desc: "Access medical records by cat profile, making it easier to keep health information organized.",
+      points: [
+        "🏥 View records by cat",
+        "📁 Organized medical history",
+        "➡️ Quick access to past records"
+      ]
+    },
+    {
+      tag: "Vet Records",
+      title: "Cat Records",
+      desc: "Track detailed visit information including medical visits, checkups, symptoms, clinic names, and emergency records.",
+      points: [
+        "💉 Track vet visits",
+        "🚨 Save emergency checkups",
+        "📍 Store clinic information"
+      ]
+    },
+    {
+      tag: "Growth Tracking",
+      title: "Growth Tracking",
+      desc: "Monitor your cat’s growth and weight changes over time to better understand their health progress.",
+      points: [
+        "📊 View growth data",
+        "⚖️ Track weight changes",
+        "🐾 Compare cats easily"
+      ]
+    }
+  ];
+
   let currentIndex = 0;
+
+  function updateFeatureInfo(index) {
+    featureInfo.classList.add("change");
+
+    setTimeout(() => {
+      const data = featureData[index];
+
+      featureTag.textContent = data.tag;
+      featureTitle.textContent = data.title;
+      featureDesc.textContent = data.desc;
+
+      featurePoints.innerHTML = data.points
+        .map(point => `<div>${point}</div>`)
+        .join("");
+
+      featureInfo.classList.remove("change");
+    }, 180);
+  }
 
   function updateCarousel() {
     slides.forEach((slide) => {
@@ -440,6 +510,8 @@
     slides[right].classList.add("right");
     slides[farLeft].classList.add("far-left");
     slides[farRight].classList.add("far-right");
+
+    updateFeatureInfo(currentIndex);
   }
 
   nextBtn.addEventListener("click", () => {
