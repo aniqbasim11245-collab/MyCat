@@ -676,3 +676,93 @@
 
     * { cursor: none !important; }
     #cat-cursor { cursor: none; }
+
+    .app-preview-section {
+  padding: 90px 8%;
+  background: linear-gradient(180deg, #fff8cf, #ffffff);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 55px;
+}
+
+.section-label {
+  color: #6b3f34;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.section-header h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  color: #4b2f2a;
+  margin: 12px 0;
+}
+
+.section-header p {
+  color: #6d5a55;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 34px;
+}
+
+.phone-card {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(107, 63, 52, 0.12);
+  border-radius: 28px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 18px 45px rgba(107, 63, 52, 0.12);
+  transition: 0.3s ease;
+}
+
+.phone-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 24px 60px rgba(107, 63, 52, 0.18);
+}
+
+.phone-card img {
+  width: 100%;
+  max-width: 260px;
+  border-radius: 34px;
+  margin-bottom: 20px;
+}
+
+.phone-card h3 {
+  color: #4b2f2a;
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.phone-card p {
+  color: #6d5a55;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 950px) {
+  .screenshots-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .app-preview-section {
+    padding: 70px 5%;
+  }
+
+  .screenshots-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .phone-card img {
+    max-width: 230px;
+  }
+}
