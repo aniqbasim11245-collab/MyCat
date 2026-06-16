@@ -385,41 +385,41 @@
 
 
   <script>
-    const catCursor = document.getElementById('cat-cursor');
-    let mouseX = -100, mouseY = -100;
-    let curX = -100, curY = -100;
+    // const catCursor = document.getElementById('cat-cursor');
+    // let mouseX = -100, mouseY = -100;
+    // let curX = -100, curY = -100;
 
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
+    // document.addEventListener('mousemove', (e) => {
+    //   mouseX = e.clientX;
+    //   mouseY = e.clientY;
+    // });
 
-    document.addEventListener('mouseleave', () => {
-      catCursor.style.opacity = '0';
-    });
+    // document.addEventListener('mouseleave', () => {
+    //   catCursor.style.opacity = '0';
+    // });
 
-    document.addEventListener('mouseenter', () => {
-      catCursor.style.opacity = '1';
-    });
+    // document.addEventListener('mouseenter', () => {
+    //   catCursor.style.opacity = '1';
+    // });
 
-    // Smooth follow — tip (0,0) is the hotspot
-    function animateCursor() {
-      curX += (mouseX - curX) * 0.18;
-      curY += (mouseY - curY) * 0.18;
-      catCursor.style.left = curX + 'px';
-      catCursor.style.top = curY + 'px';
-      requestAnimationFrame(animateCursor);
-    }
-    animateCursor();
+    // // Smooth follow — tip (0,0) is the hotspot
+    // function animateCursor() {
+    //   curX += (mouseX - curX) * 0.18;
+    //   curY += (mouseY - curY) * 0.18;
+    //   catCursor.style.left = curX + 'px';
+    //   catCursor.style.top = curY + 'px';
+    //   requestAnimationFrame(animateCursor);
+    // }
+    // animateCursor();
 
-    // Squish on click from top-left origin
-    document.addEventListener('mousedown', () => {
-      catCursor.style.transformOrigin = '0 0';
-      catCursor.style.transform = 'scale(0.85)';
-    });
-    document.addEventListener('mouseup', () => {
-      catCursor.style.transform = 'scale(1)';
-    });
+    // // Squish on click from top-left origin
+    // document.addEventListener('mousedown', () => {
+    //   catCursor.style.transformOrigin = '0 0';
+    //   catCursor.style.transform = 'scale(0.85)';
+    // });
+    // document.addEventListener('mouseup', () => {
+    //   catCursor.style.transform = 'scale(1)';
+    // });
     const slides = document.querySelectorAll(".phone-slide");
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
