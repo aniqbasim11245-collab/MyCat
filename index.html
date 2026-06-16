@@ -107,48 +107,49 @@
   <div class="section-header">
     <span class="section-label">App Preview</span>
     <h2>See MyCAT in Action</h2>
-    <p>
-      Explore the main features of MyCAT, from cat profiles and AI assistance
-      to medical history and growth tracking.
-    </p>
+    <p>Swipe through the main screens of MyCAT in a 3D phone preview.</p>
   </div>
 
-  <div class="screenshots-grid">
-    <div class="phone-card">
-      <img src="images/homepage.png" alt="MyCAT home page">
-      <h3>Home Page</h3>
-      <p>View and manage all your cats in one place.</p>
+  <div class="carousel-wrapper">
+    <button class="carousel-btn prev" id="prevBtn">‹</button>
+
+    <div class="phone-carousel" id="phoneCarousel">
+      <div class="phone-slide active">
+        <img src="images/app/homepage.png" alt="Home Page">
+        <h3>Home Page</h3>
+      </div>
+
+      <div class="phone-slide">
+        <img src="images/app/addcat.png" alt="Add Cat">
+        <h3>Add Cat</h3>
+      </div>
+
+      <div class="phone-slide">
+        <img src="images/app/catbot.png" alt="CatBot AI">
+        <h3>CatBot AI</h3>
+      </div>
+
+      <div class="phone-slide">
+        <img src="images/app/medicalhistory.png" alt="Medical History">
+        <h3>Medical History</h3>
+      </div>
+
+      <div class="phone-slide">
+        <img src="images/app/catmedicalhistory.png" alt="Cat Records">
+        <h3>Cat Records</h3>
+      </div>
+
+      <div class="phone-slide">
+        <img src="images/app/growth.png" alt="Growth Tracking">
+        <h3>Growth Tracking</h3>
+      </div>
     </div>
 
-    <div class="phone-card">
-      <img src="images/addcat.png" alt="Add cat page">
-      <h3>Add Cat</h3>
-      <p>Create a new cat profile with basic details.</p>
-    </div>
+    <button class="carousel-btn next" id="nextBtn">›</button>
+  </div>
+</section>
 
-    <div class="phone-card">
-      <img src="images/catbot.png" alt="CatBot AI assistant">
-      <h3>CatBot AI</h3>
-      <p>Ask questions about cat care, breeds, and health tips.</p>
-    </div>
-
-    <div class="phone-card">
-      <img src="images/medicalhistory.png" alt="Medical history page">
-      <h3>Medical History</h3>
-      <p>Access each cat’s medical record quickly.</p>
-    </div>
-
-    <div class="phone-card">
-      <img src="images/catmedicalhistory.png" alt="Cat medical records">
-      <h3>Cat Records</h3>
-      <p>Track visits, checkups, and emergency records.</p>
-    </div>
-
-    <div class="phone-card">
-      <img src="images/growth.png" alt="Growth tracking page">
-      <h3>Growth Tracking</h3>
-      <p>Monitor cat weight and growth over time.</p>
-    </div>
+    <button class="carousel-btn next" id="nextBtn">›</button>
   </div>
 </section>
 
@@ -328,6 +329,44 @@
       if (apkObjectUrl) { URL.revokeObjectURL(apkObjectUrl); apkObjectUrl = null; }
       apkInput.value = '';
     });
+const slides = document.querySelectorAll(".phone-slide");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    slides.forEach((slide) => {
+      slide.className = "phone-slide";
+    });
+
+    const total = slides.length;
+
+    const active = currentIndex;
+    const left = (currentIndex - 1 + total) % total;
+    const right = (currentIndex + 1) % total;
+    const farLeft = (currentIndex - 2 + total) % total;
+    const farRight = (currentIndex + 2) % total;
+
+    slides[active].classList.add("active");
+    slides[left].classList.add("left");
+    slides[right].classList.add("right");
+    slides[farLeft].classList.add("far-left");
+    slides[farRight].classList.add("far-right");
+  }
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateCarousel();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateCarousel();
+  });
+
+  updateCarousel();
+
   </script>
 
   <!-- CAT CURSOR -->
