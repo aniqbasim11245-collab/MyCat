@@ -677,7 +677,8 @@
     .app-preview-section {
   padding: 90px 8%;
   background: linear-gradient(180deg, #fff8cf, #ffffff);
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
 .section-header {
@@ -707,13 +708,11 @@
 
 .carousel-wrapper {
   position: relative;
-  height: 650px;
+  height: 720px;
   display: flex;
   justify-content: center;
   align-items: center;
   perspective: 1300px;
-  overflow: hidden;
-
 }
 
 .phone-carousel {
@@ -846,5 +845,38 @@
 
   .carousel-btn.next {
     right: 4%;
+  }
+}
+@media (max-width: 768px) {
+  .carousel-wrapper {
+    height: 620px;
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
+  .phone-carousel {
+    width: 250px;
+    height: 540px;
+  }
+
+  .phone-slide img {
+    height: 460px;
+  }
+
+  .phone-slide h3 {
+    margin-top: 10px;
+  }
+
+  .phone-slide.left {
+    transform: translateX(-70px) translateZ(-90px) rotateY(35deg) scale(0.65);
+  }
+
+  .phone-slide.right {
+    transform: translateX(70px) translateZ(-90px) rotateY(-35deg) scale(0.65);
+  }
+
+  .phone-slide.far-left,
+  .phone-slide.far-right {
+    opacity: 0;
   }
 }
