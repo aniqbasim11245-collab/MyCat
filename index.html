@@ -11,38 +11,23 @@
 
   <!-- NAV -->
   <nav>
-    <div class="nav-logo">Mycat <span>/ app</span></div>
+    <div class="nav-logo">MyCAT</div>
     <ul class="nav-links">
       <li><a href="#features">Features</a></li>
-      <li><a href="#install">Install</a></li>
+      <li><a href="#install">Guide</a></li>
       <li><a href="#download">Download</a></li>
     </ul>
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" id="download">
     <div class="hero-text">
       <div class="eyebrow fade-up">Flutter App · Android</div>
       <h1 class="fade-up">Your <em>cat,</em><br>always<br>close.</h1>
       <p class="hero-desc fade-up">Mycat keeps everything about your feline companion in one beautiful, simple place — health records, feeding schedules, and precious memories.</p>
 
-      <div class="download-zone fade-up" id="download">
+      <div class="download-zone fade-up">
         <div class="download-label">Download for Android</div>
-
-        <!-- Upload APK
-        <div class="upload-zone" id="uploadZone">
-          <input type="file" accept=".apk" id="apkInput" />
-          <div class="upload-icon">📦</div>
-          <div class="upload-text"><strong>Drop your APK here</strong><br>or click to browse</div>
-        </div> -->
-
-              <!-- APK Ready State
-        <div class="apk-ready show">
-          <span style="font-size:1.1rem">✅</span>
-          <span class="apk-name">MyCAT.apk</span>
-          <span class="apk-size">109.2MB</span>
-        </div> -->
-
         <!-- Download Button -->
         <a href="https://github.com/aniqbasim11245-collab/MyCat/releases/download/v1.0.0/MyCAT.apk?v=1.0.0"
         class="download-btn">
@@ -163,7 +148,7 @@
   <!-- INSTALL GUIDE -->
   <section class="install" id="install">
     <div>
-      <div class="section-label">How to install</div>
+      <div class="section-label">How to install guide</div>
       <h2 class="install-title">Sideload in<br><em>four steps.</em></h2>
       <p class="install-sub">Since Mycat isn't on the Play Store yet, you'll install it directly from the APK file. Takes less than 2 minutes.</p>
     </div>
@@ -172,7 +157,7 @@
         <div class="step-num">01</div>
         <div class="step-content">
           <h4>Download the APK</h4>
-          <p>Tap the download button above and save <code>Mycat.apk</code> to your device's storage.</p>
+          <p>Tap the download button above and save <code>MyCAT.apk</code> to your device's storage.</p>
         </div>
       </div>
       <div class="step">
@@ -186,7 +171,7 @@
         <div class="step-num">03</div>
         <div class="step-content">
           <h4>Open the APK</h4>
-          <p>Navigate to your Downloads folder and tap <code>Mycat.apk</code> to begin installation.</p>
+          <p>Navigate to your Downloads folder and tap <code>MyCAT.apk</code> to begin installation.</p>
         </div>
       </div>
       <div class="step">
@@ -217,314 +202,8 @@
     <div class="footer-logo">Mycat</div>
     <div class="footer-note">Built and Made By Aniq B</div>
   </footer>
-
-  <script>
-    const apkInput = document.getElementById('apkInput');
-    const uploadZone = document.getElementById('uploadZone');
-    const apkReady = document.getElementById('apkReady');
-    const apkFileName = document.getElementById('apkFileName');
-    const apkFileSize = document.getElementById('apkFileSize');
-    const downloadBtn = document.getElementById('downloadBtn');
-    const versionMeta = document.getElementById('versionMeta');
-
-    let apkObjectUrl = null;
-
-    function formatBytes(bytes) {
-      if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
-      return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
-    }
-
-    function handleFile(file) {
-      if (!file || !file.name.endsWith('.apk')) {
-        alert('Please select a valid .apk file.');
-        return;
-      }
-
-      if (apkObjectUrl) URL.revokeObjectURL(apkObjectUrl);
-      apkObjectUrl = URL.createObjectURL(file);
-
-      apkFileName.textContent = file.name;
-      apkFileSize.textContent = formatBytes(file.size);
-
-      uploadZone.style.display = 'none';
-      apkReady.classList.add('show');
-
-      downloadBtn.disabled = false;
-      downloadBtn.style.opacity = '1';
-      downloadBtn.style.cursor = 'pointer';
-      downloadBtn.innerHTML = `
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-          <polyline points="7 10 12 15 17 10"/>
-          <line x1="12" y1="15" x2="12" y2="3"/>
-        </svg>
-        Download ${file.name}
-      `;
-
-      versionMeta.textContent = `${formatBytes(file.size)} · Android APK · Ready to install`;
-    }
-
-    apkInput.addEventListener('change', (e) => {
-      if (e.target.files[0]) handleFile(e.target.files[0]);
-    });
-
-    // Drag & drop
-    uploadZone.addEventListener('dragover', (e) => {
-      e.preventDefault();
-      uploadZone.classList.add('dragover');
-    });
-
-    uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
-
-    uploadZone.addEventListener('drop', (e) => {
-      e.preventDefault();
-      uploadZone.classList.remove('dragover');
-      if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
-    });
-
-    downloadBtn.addEventListener('click', () => {
-      if (!apkObjectUrl) return;
-      const a = document.createElement('a');
-      a.href = apkObjectUrl;
-      a.download = apkFileName.textContent;
-      a.click();
-    });
-
-    // Reset to upload zone
-    apkReady.addEventListener('click', () => {
-      apkReady.classList.remove('show');
-      uploadZone.style.display = '';
-      downloadBtn.disabled = true;
-      downloadBtn.style.opacity = '0.4';
-      downloadBtn.style.cursor = 'not-allowed';
-      downloadBtn.innerHTML = `
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-          <polyline points="7 10 12 15 17 10"/>
-          <line x1="12" y1="15" x2="12" y2="3"/>
-        </svg>
-        Download Mycat.apk
-      `;
-      versionMeta.textContent = 'Upload your APK file above to enable download';
-      if (apkObjectUrl) { URL.revokeObjectURL(apkObjectUrl); apkObjectUrl = null; }
-      apkInput.value = '';
-    });
-    
-  </script>
-
-  <!-- CAT CURSOR
-  <div id="cat-cursor" style="
-    position: fixed;
-    top: 0; left: 0;
-    pointer-events: none;
-    z-index: 99999;
-    will-change: left, top;
-  ">
-    <svg width="64" height="72" viewBox="0 0 64 72" xmlns="http://www.w3.org/2000/svg">
-      <!-- POINTER TIP at (0,0) = actual click hotspot -->
-      <polygon points="0,0 10,28 20,18" fill="#5D4037"/>
-      <polygon points="0,0 10,28 20,18" fill="none" stroke="#FFEB3B" stroke-width="1.2" stroke-linejoin="round"/>
-
-      <!-- Dotted connector line from tip to cat head -->
-      <line x1="3" y1="4" x2="24" y2="40" stroke="#FFEB3B" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
-
-      <!-- CAT HEAD offset down-right from pointer tip -->
-      <!-- Left ear -->
-      <polygon points="22,44 19,30 31,38" fill="#5D4037"/>
-      <!-- Right ear -->
-      <polygon points="53,44 58,30 47,38" fill="#5D4037"/>
-      <!-- Left ear inner -->
-      <polygon points="23.5,42 21,33 30,38" fill="#FFEB3B"/>
-      <!-- Right ear inner -->
-      <polygon points="51.5,42 56,33 48,38" fill="#FFEB3B"/>
-      <!-- Head -->
-      <ellipse cx="38" cy="54" rx="17" ry="15" fill="#5D4037"/>
-      <!-- Face highlight -->
-      <ellipse cx="38" cy="53" rx="12" ry="10" fill="#6D4C41"/>
-      <!-- Left eye -->
-      <ellipse cx="32" cy="51" rx="3.5" ry="4" fill="#FFEB3B"/>
-      <ellipse cx="32" cy="51" rx="1.5" ry="3" fill="#1a0a00"/>
-      <!-- Right eye -->
-      <ellipse cx="44" cy="51" rx="3.5" ry="4" fill="#FFEB3B"/>
-      <ellipse cx="44" cy="51" rx="1.5" ry="3" fill="#1a0a00"/>
-      <!-- Eye shine -->
-      <circle cx="33" cy="49.5" r="1" fill="white" opacity="0.8"/>
-      <circle cx="45" cy="49.5" r="1" fill="white" opacity="0.8"/>
-      <!-- Nose -->
-      <ellipse cx="38" cy="56.5" rx="2" ry="1.4" fill="#FFCCBC"/>
-      <!-- Mouth -->
-      <path d="M36,58 Q38,60.5 40,58" fill="none" stroke="#4a2f28" stroke-width="1" stroke-linecap="round"/>
-      <!-- Left whiskers -->
-      <line x1="19" y1="55" x2="34" y2="56" stroke="#FFFDE7" stroke-width="0.9" opacity="0.7"/>
-      <line x1="19" y1="58" x2="34" y2="57.5" stroke="#FFFDE7" stroke-width="0.9" opacity="0.7"/>
-      <!-- Right whiskers -->
-      <line x1="57" y1="55" x2="42" y2="56" stroke="#FFFDE7" stroke-width="0.9" opacity="0.7"/>
-      <line x1="57" y1="58" x2="42" y2="57.5" stroke="#FFFDE7" stroke-width="0.9" opacity="0.7"/>
-    </svg>
-  </div> 
-
-  <script>
-    // const catCursor = document.getElementById('cat-cursor');
-    // let mouseX = -100, mouseY = -100;
-    // let curX = -100, curY = -100;
-
-    // document.addEventListener('mousemove', (e) => {
-    //   mouseX = e.clientX;
-    //   mouseY = e.clientY;
-    // });
-
-    // document.addEventListener('mouseleave', () => {
-    //   catCursor.style.opacity = '0';
-    // });
-
-    // document.addEventListener('mouseenter', () => {
-    //   catCursor.style.opacity = '1';
-    // });
-
-    // // Smooth follow — tip (0,0) is the hotspot
-    // function animateCursor() {
-    //   curX += (mouseX - curX) * 0.18;
-    //   curY += (mouseY - curY) * 0.18;
-    //   catCursor.style.left = curX + 'px';
-    //   catCursor.style.top = curY + 'px';
-    //   requestAnimationFrame(animateCursor);
-    // }
-    // animateCursor();
-
-    // // Squish on click from top-left origin
-    // document.addEventListener('mousedown', () => {
-    //   catCursor.style.transformOrigin = '0 0';
-    //   catCursor.style.transform = 'scale(0.85)';
-    // });
-    // document.addEventListener('mouseup', () => {
-    //   catCursor.style.transform = 'scale(1)';
-    // });
-   const slides = document.querySelectorAll(".phone-slide");
-  const prevBtn = document.getElementById("prevBtn");
-  const nextBtn = document.getElementById("nextBtn");
-
-  const featureInfo = document.getElementById("featureInfo");
-  const featureTag = document.getElementById("featureTag");
-  const featureTitle = document.getElementById("featureTitle");
-  const featureDesc = document.getElementById("featureDesc");
-  const featurePoints = document.getElementById("featurePoints");
-
-  const featureData = [
-    {
-      tag: "Cat Profiles",
-      title: "Home Page",
-      desc: "View and manage all your cats in one place with a clean card-based interface.",
-      points: [
-        "🐱 View saved cat profiles",
-        "🔍 Search cats quickly",
-        "📌 Access each cat’s details"
-      ]
-    },
-    {
-      tag: "Profile Setup",
-      title: "Add New Cat",
-      desc: "Create a complete cat profile by adding important details such as name, age, gender, breed, and photo.",
-      points: [
-        "➕ Add new cat profiles",
-        "📷 Upload cat photo",
-        "📝 Save breed and basic details"
-      ]
-    },
-    {
-      tag: "AI Assistant",
-      title: "CatBot AI",
-      desc: "Ask CatBot questions about cat care, breeds, symptoms, and general pet guidance directly inside the app.",
-      points: [
-        "🤖 AI-powered cat assistant",
-        "💬 Ask health and care questions",
-        "⚠️ Reminds users to verify with vets"
-      ]
-    },
-    {
-      tag: "Medical Records",
-      title: "Medical History",
-      desc: "Access medical records by cat profile, making it easier to keep health information organized.",
-      points: [
-        "🏥 View records by cat",
-        "📁 Organized medical history",
-        "➡️ Quick access to past records"
-      ]
-    },
-    {
-      tag: "Vet Records",
-      title: "Cat Records",
-      desc: "Track detailed visit information including medical visits, checkups, symptoms, clinic names, and emergency records.",
-      points: [
-        "💉 Track vet visits",
-        "🚨 Save emergency checkups",
-        "📍 Store clinic information"
-      ]
-    },
-    {
-      tag: "Growth Tracking",
-      title: "Growth Tracking",
-      desc: "Monitor your cat’s growth and weight changes over time to better understand their health progress.",
-      points: [
-        "📊 View growth data",
-        "⚖️ Track weight changes",
-        "🐾 Compare cats easily"
-      ]
-    }
-  ];
-
-  let currentIndex = 0;
-
-  function updateFeatureInfo(index) {
-    featureInfo.classList.add("change");
-
-    setTimeout(() => {
-      const data = featureData[index];
-
-      featureTag.textContent = data.tag;
-      featureTitle.textContent = data.title;
-      featureDesc.textContent = data.desc;
-
-      featurePoints.innerHTML = data.points
-        .map(point => `<div>${point}</div>`)
-        .join("");
-
-      featureInfo.classList.remove("change");
-    }, 180);
-  }
-
-  function updateCarousel() {
-    slides.forEach((slide) => {
-      slide.className = "phone-slide";
-    });
-
-    const total = slides.length;
-
-    const active = currentIndex;
-    const left = (currentIndex - 1 + total) % total;
-    const right = (currentIndex + 1) % total;
-    const farLeft = (currentIndex - 2 + total) % total;
-    const farRight = (currentIndex + 2) % total;
-
-    slides[active].classList.add("active");
-    slides[left].classList.add("left");
-    slides[right].classList.add("right");
-    slides[farLeft].classList.add("far-left");
-    slides[farRight].classList.add("far-right");
-
-    updateFeatureInfo(currentIndex);
-  }
-
-  nextBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % slides.length;
-    updateCarousel();
-  });
-
-  prevBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateCarousel();
-  });
-
-  updateCarousel();
-  </script>
+  <script src="js/main.js"></script>
+  <script src="js/download.js"></script>
+  <script src="js/carousel.js"></script>
 </body>
 </html>
