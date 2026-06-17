@@ -71,6 +71,7 @@
       text-transform: uppercase;
       opacity: 0.7;
       transition: opacity 0.2s;
+      font-weight: bold;
     }
 
     .nav-links a:hover { opacity: 1; }
@@ -886,8 +887,39 @@
   position: relative;
   z-index: 1;
   padding: 90px 8%;
-  background: linear-gradient(180deg, #fff8cf, #ffffff);
+  background: linear-gradient(180deg, #fff8cf);
   overflow-x: hidden;
+  position: relative;
+  overflow: hidden;
+}
+.app-showcase-section::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    border-radius:50%;
+
+    background:rgba(255,248,207,.5);
+
+    filter:blur(130px);
+
+    top:-200px;
+    left:-150px;
+
+    z-index:0;
+
+}
+
+.app-showcase-section>*{
+
+    position:relative;
+
+    z-index:2;
+
 }
 
 .section-header {
@@ -1356,4 +1388,283 @@ body {
     max-width: 100%;
     margin: 0;
   }
+}
+
+
+/* HOW IT WORKS */
+.workflow-section{
+padding:100px 8%;
+background:rgba(255, 235, 59, 0.85);
+overflow:hidden;
+position:relative;
+}
+
+.workflow-section::before{
+
+content:"";
+
+position:absolute;
+
+width:450px;
+height:450px;
+
+border-radius:50%;
+
+background:rgba(255,248,207,.6);
+
+filter:blur(120px);
+
+top:-180px;
+right:-150px;
+
+z-index:0;
+
+}
+
+
+.workflow-container{
+
+position:relative;
+
+z-index:2;
+
+}
+
+.workflow-container{
+max-width:1200px;
+margin:auto;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:40px;
+margin-top:60px;
+}
+
+.workflow-card{
+width:320px;
+padding:40px;
+border-radius:24px;
+background:white;
+box-shadow:
+0 10px 40px rgba(0,0,0,0.05);
+text-align:center;
+transition:0.3s;
+}
+
+.workflow-card:hover{
+transform:translateY(-10px);
+}
+
+.workflow-icon{
+width:80px;
+height:80px;
+margin:auto;
+border-radius:50%;
+background:#F5E8B7;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:36px;
+margin-bottom:25px;
+}
+
+.workflow-card h3{
+font-size:28px;
+margin-bottom:15px;
+color:#4b2f2a;
+}
+
+.workflow-card p{
+line-height:1.8;
+opacity:0.7;
+}
+
+.workflow-arrow{
+font-size:50px;
+opacity:0.25;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.workflow-container{
+flex-direction:column;
+gap:20px;
+}
+
+.workflow-arrow{
+transform:rotate(90deg);
+font-size:35px;
+}
+
+.workflow-card{
+width:100%;
+max-width:360px;
+}
+}
+
+
+/* QR SHOWCASE */
+.qr-showcase{
+padding:100px 8%;
+background:#FFF8CF;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:6rem;
+align-items:center;
+overflow:hidden;
+position:relative;
+}
+
+.qr-showcase::before{
+
+content:"";
+
+position:absolute;
+
+width:350px;
+height:350px;
+
+border-radius:50%;
+
+background:rgba(93,64,55,.06);
+
+filter:blur(100px);
+
+bottom:-100px;
+left:-100px;
+
+z-index:0;
+
+}
+
+
+.qr-showcase>*{
+
+position:relative;
+
+z-index:2;
+
+}
+
+.qr-content{
+max-width:600px;
+}
+
+.qr-content h2{
+font-size:clamp(2.4rem,5vw,4rem);
+line-height:1.05;
+margin-bottom:1.5rem;
+color:#4B2F2A;
+}
+
+.qr-content p{
+line-height:1.9;
+opacity:0.75;
+margin-bottom:2rem;
+}
+
+.qr-features{
+display:grid;
+gap:1rem;
+}
+
+.qr-features div{
+padding:18px;
+border-radius:14px;
+background:white;
+box-shadow:
+0 5px 25px rgba(0,0,0,0.04);
+}
+
+.qr-visual{
+display:flex;
+justify-content:center;
+}
+
+.qr-card{
+width:300px;
+height:360px;
+background:#5D4037;
+border-radius:30px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+box-shadow:
+0 30px 60px rgba(0,0,0,0.15);
+animation:floatQR 4s ease-in-out infinite;
+}
+
+.qr-card p{
+margin-top:30px;
+color:white;
+text-align:center;
+line-height:1.7;
+padding:0 30px;
+}
+
+.qr-code{
+width:170px;
+height:170px;
+display:grid;
+grid-template-columns:
+repeat(4,1fr);
+gap:8px;
+}
+
+.qr-code span{
+background:#FFF8CF;
+border-radius:5px;
+}
+@keyframes floatQR{
+
+0%{
+transform:translateY(0px);
+}
+50%{
+transform:translateY(-10px);
+}
+100%{
+transform:translateY(0px);
+}
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.qr-showcase{
+grid-template-columns:1fr;
+gap:3rem;
+padding:80px 1.5rem;
+text-align:center;
+}
+
+.qr-content{
+margin:auto;
+}
+
+.qr-card{
+width:260px;
+height:320px;
+}
+
+.qr-code{
+width:150px;
+height:150px;
+}
+}
+
+/* SCROLL REVEAL ANIMATION */
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
 }
