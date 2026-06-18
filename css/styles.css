@@ -224,9 +224,16 @@
       border-radius: 27px;
       overflow: hidden;
       display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;;
+    }
+
+    .phone-header {
+      display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 2rem 1rem 1rem;
+      justify-content: center;
     }
 
     .phone-notch {
@@ -253,6 +260,11 @@
       box-shadow: 0 4px 16px rgba(93, 64, 55, 0.15);
       font-size: 2.2rem;
     }
+    .phone-cat-icon img{
+    width:70%;
+    height:70%;
+    object-fit:contain;
+}
 
     .phone-app-name {
       font-family: 'DM Serif Display', serif;
