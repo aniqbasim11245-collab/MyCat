@@ -54,6 +54,11 @@
       align-items: center;
       gap: 0.5rem;
     }
+    .nav-logo img{
+     width:30;
+    height:30px;
+    object-fit:contain;
+}
 
     .nav-logo span { font-style: italic; opacity: 0.6; }
 
